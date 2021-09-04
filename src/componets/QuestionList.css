@@ -1,0 +1,13 @@
+
+#main{
+    text-align:center;
+    font-size: 1rem;
+}
+.ui-celled-list{
+        font-size:2rem;
+}
+.Btn1{
+    margin:0px;
+    box-sizing: border-box;
+    color:blue;
+}
