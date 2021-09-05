@@ -1,8 +1,9 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 function Home() {
     return (
         <div>
-       <button>ADD  QUESTION</button>
+      <Link to="/header"> <button>ADD  QUESTION</button></Link>
         
             
         </div>

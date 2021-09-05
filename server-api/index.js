@@ -1,33 +1,36 @@
-const express=require('express')
-const mysql=require("mysql");
+const express = require('express');
+const mysql= require('mysql');
+const {default: questions } = require('../src/api/questions');
 
-const app=express();
+
+
+
+
+const app = express();
 app.use(express.json());
 
-
-const db=mysql.createConnection({
-    user :"root",
-    host:"localhost",
-    password:"password",
-    database:"questionandanswer",
-
+const db = mysql.createConnection({
+    user:"root",
+    host:"Localhost",
+    password: "password",
+    database: "qanda_app",
 });
+
 
 app.post('/questions',(req,res)=>{
 
-    const number=req.body.number
-    const author=req.body.author
-    const question=req.body.question
-    db.query(
-        "INSERT INTO questionandanswer(Number,Author,Text ) VALUES(?,?,?)",
-    [number,author,question],
+
+
+    db.query("INSERT INTO qanda,(Number,Author,Question)VALUES(?,?,?)"[questions],
     (err,results)=>{
         console.log(err);
-    }
-    )
+    })
+})
+
+
+
+
+app.listen(3005,()=>{
+    console.log("running server");
 });
 
-
-app.listen(3005,(req,res)=>{
-    console.log("server running")
-})
